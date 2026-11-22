@@ -1,0 +1,249 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #050505;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0,0,0,.92);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid #222;
+    z-index: 1000;
+}
+
+.logo, .footer-logo {
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    text-decoration: none;
+    text-shadow: 0 0 15px #aaa;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    color: #aaa;
+    text-decoration: none;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: white;
+    text-shadow: 0 0 12px white;
+}
+
+#menu-button {
+    display: none;
+    background: none;
+    color: white;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 20px 60px;
+    background:
+        radial-gradient(ellipse at center, #222 0%, #090909 45%, #000 100%);
+}
+
+.hero-content {
+    animation: apparition 1.5s ease;
+}
+
+.sous-titre {
+    color: #999;
+    font-size: 11px;
+    letter-spacing: 6px;
+}
+
+.hero h1 {
+    font-size: clamp(50px, 12vw, 110px);
+    letter-spacing: 14px;
+    margin: 25px 0;
+    text-shadow: 0 0 35px #777;
+}
+
+.hero p {
+    color: #aaa;
+    max-width: 480px;
+    line-height: 1.8;
+    margin: auto auto 35px;
+}
+
+.bouton, .boutique-button {
+    display: inline-block;
+    padding: 14px 32px;
+    border: 1px solid #888;
+    border-radius: 30px;
+    color: white;
+    text-decoration: none;
+    transition: .4s;
+}
+
+.bouton:hover, .boutique-button:hover {
+    background: white;
+    color: black;
+    box-shadow: 0 0 25px #888;
+    transform: translateY(-4px);
+}
+
+section:not(.hero) {
+    padding: 110px 8%;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 32px;
+    letter-spacing: 3px;
+    margin: 22px 0;
+}
+
+section p {
+    color: #999;
+    line-height: 1.8;
+}
+
+.cartes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-top: 50px;
+}
+
+.carte {
+    padding: 40px 25px;
+    background: linear-gradient(145deg, #191919, #080808);
+    border: 1px solid #292929;
+    border-radius: 15px;
+    transition: .4s;
+}
+
+.carte:hover {
+    transform: translateY(-10px);
+    border-color: #888;
+    box-shadow: 0 0 30px #222;
+}
+
+.carte-icon {
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.carte h3 {
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.carte p {
+    margin-bottom: 25px;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity .9s ease, transform .9s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+footer {
+    padding: 45px 20px;
+    text-align: center;
+    background: #000;
+    border-top: 1px solid #222;
+    color: #777;
+    line-height: 2;
+}
+
+.footer-logo {
+    margin-bottom: 10px;
+}
+
+@keyframes apparition {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 700px) {
+
+    header {
+        padding: 15px 6%;
+    }
+
+    #menu-button {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        padding: 25px;
+        background: #080808;
+        flex-direction: column;
+        align-items: center;
+        border-bottom: 1px solid #333;
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    .hero h1 {
+        letter-spacing: 7px;
+    }
+
+    section:not(.hero) {
+        padding: 80px 6%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
