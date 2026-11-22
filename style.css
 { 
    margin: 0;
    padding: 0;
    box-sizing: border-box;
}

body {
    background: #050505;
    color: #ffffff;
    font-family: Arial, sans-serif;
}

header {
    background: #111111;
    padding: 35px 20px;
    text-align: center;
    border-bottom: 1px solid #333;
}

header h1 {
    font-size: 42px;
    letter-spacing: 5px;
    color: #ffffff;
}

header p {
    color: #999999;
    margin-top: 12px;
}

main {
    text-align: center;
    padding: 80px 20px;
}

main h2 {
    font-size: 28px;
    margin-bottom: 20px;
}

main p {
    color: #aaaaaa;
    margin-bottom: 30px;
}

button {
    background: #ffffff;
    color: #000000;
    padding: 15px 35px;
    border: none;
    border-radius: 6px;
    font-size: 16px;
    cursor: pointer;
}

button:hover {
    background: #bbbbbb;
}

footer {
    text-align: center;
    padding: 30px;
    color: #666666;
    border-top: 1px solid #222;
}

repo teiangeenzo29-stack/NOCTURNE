@@ -1,4 +1,51 @@
 
+/* ANIMATIONS NOCTURNE */
+
+.logo {
+  animation: moonGlow 3s infinite alternate;
+}
+
+@keyframes moonGlow {
+  from {
+    text-shadow: 0 0 5px white;
+  }
+  to {
+    text-shadow: 0 0 25px white, 0 0 45px #777;
+  }
+}
+
+/* Apparition progressive */
+main {
+  animation: fadeIn 2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Boutons lumineux */
+button, .boutique-button {
+  transition: all 0.4s ease;
+}
+
+button:hover, .boutique-button:hover {
+  box-shadow: 0 0 20px white;
+  transform: scale(1.05);
+}
+
+/* Étoiles scintillantes */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
 * {
     margin: 0;
     padding: 0;
